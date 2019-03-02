@@ -72,6 +72,7 @@ router.put('/:id', async (req, res) => {
         console.log("put request", req.params.id, req.body)
       if (editPost) {
              res.status(200).json(editPost)
+             return;
       } else {
         res.status(404).json({ errorMessage: "The post with the specified ID does not exist."})
       }
