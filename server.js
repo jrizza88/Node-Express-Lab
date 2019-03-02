@@ -7,6 +7,8 @@ const server = express();
 
 server.use(express.json());
 
+// server.use(cors());
+
 // use server.use when you are ready to incorporate the endpoint from postRouter
 server.use('/api/posts', postRoutes);
 
@@ -24,3 +26,5 @@ server.get('*', (req, res)=> {
 
 //export file
 module.exports = server;
+
+// module.exports = cors;
