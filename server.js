@@ -7,6 +7,7 @@ const server = express();
 
 server.use(express.json());
 
+// throws an error for some reason
 // server.use(cors());
 
 // use server.use when you are ready to incorporate the endpoint from postRouter

@@ -17,13 +17,19 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+
     try {
         const post = await db.findById(req.params.id);
         console.log('find by id', req.params.id)
-     
-        post[0] ?
-            res.status(200).json(post) :
-            res.status(404).json({message: "The post with the specified ID does not exist."})
+        
+        if (!post[0]){
+           throw  res.status(res.status(404).json({message: "The post with the specified ID does not exist."}))
+        } else {
+          res.status(200).json(post)
+        }
+        // post[0] ?
+        //     res.status(200).json(post) :
+        //     res.status(404).json({message: "The post with the specified ID does not exist."})
         
     } catch (error) {
         console.log(error)
